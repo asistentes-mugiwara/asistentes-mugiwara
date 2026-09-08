@@ -4,153 +4,103 @@
 
 # 🏴‍☠️ Asistentes Mugiwara
 
-> Una tripulación de agentes IA especializados, capitaneada por **[Pablo Laya](https://github.com/Prodelaya)** y desplegada sobre un MiniPC con Ubuntu Server.
+Plataforma personal de agentes de IA, automatización y operación en Linux, diseñada y operada por [Pablo Laya](https://github.com/Prodelaya).
 
-Bienvenido a la cubierta pública de **Asistentes Mugiwara**: no somos un bot con diez sombreros; somos un sistema multiagente con roles separados, memoria gobernada, repos propios, control de mando y una regla sagrada:
+Mugiwara combina agentes especializados, memoria por capas, herramientas gobernadas y un panel de control para organizar tareas y observar el sistema.
 
-> cada agente tiene una especialidad real, y la bodega no se abre sin motivo. ⚓
+La implementación utiliza asistencia intensiva de IA dentro de una arquitectura, permisos y criterios definidos por Pablo. La autonomía de los agentes se limita a las responsabilidades delegadas.
 
-Este perfil enseña la parte pública del proyecto de Pablo: una forma práctica, divertida y bastante seria de montar una tripulación de agentes sobre infraestructura propia.
+La narrativa de tripulación sirve para identificar roles. El interés técnico está en cómo se separan responsabilidades, memoria, acceso y operación.
 
----
+## Empieza aquí
 
-## 🧭 Qué es esto
+Mugiwara es una plataforma personal de agentes de IA, automatización y operación en Linux, diseñada y operada por **[Pablo Laya](https://github.com/Prodelaya)**.
 
-**Asistentes Mugiwara** es el perfil GitHub de la tripulación de agentes de Pablo Laya.
+- 🕹️ [Mugiwara Control Panel](https://github.com/asistentes-mugiwara/mugiwara-control-panel): consola de observabilidad y navegación, con código público saneado y operación privada.
+- 🗺️ [Mugiwara no Hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes): arquitectura pública, memoria, gobernanza y límites del sistema privado.
+- 💼 [Portfolio de Pablo Laya](https://prodelaya.dev/): perfil profesional y proyectos.
+- ⚓ [Caso Mugiwara](https://prodelaya.dev/#case-mugi): contexto del sistema en el portfolio.
 
-La idea: convertir un MiniPC con Ubuntu Server en un pequeño barco de operaciones IA, donde cada agente tiene una responsabilidad concreta y trabaja con herramientas, memoria y repos de forma trazable.
+## Alcance público
 
-Aquí encontrarás repos públicos que explican o implementan piezas del ecosistema:
+Estos repositorios ofrecen código y documentación seleccionados para explicar el sistema. No publican configuración viva, credenciales, memoria privada, datos operativos, topología reconstructiva ni acceso al runtime.
 
-- 🗺️ **[mugiwara-no-hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes)** — escaparate público del sistema: arquitectura, memoria, gobernanza y operación explicadas sin enseñar llaves.
-- 🕹️ **[mugiwara-control-panel](https://github.com/asistentes-mugiwara/mugiwara-control-panel)** — control de mando privado de Mugiwara/Hermes: dashboard, tripulación, skills, memoria, vault, healthchecks, Git y uso agregado.
+`mugiwara-no-hermes` se distribuye con licencia MIT. El perfil y el panel son código público, pero no se presentan como open source mientras no declaren una licencia.
 
----
+## Capacidades demostradas
 
-## 👥 La tripulación
+- especialización de agentes con responsabilidades y límites explícitos;
+- memoria separada en capas relacional, técnica y canónica;
+- herramientas gobernadas y flujos de entrega revisables;
+- observabilidad mediante una interfaz que protege las fuentes privadas;
+- automatización y operación en Linux con publicación deny-by-default.
 
-| Mugiwara | Rol | Qué hace en la cubierta |
+Estas capacidades describen el diseño y la práctica documentada; no constituyen una señal de disponibilidad o actividad en tiempo real.
+
+## Arquitectura resumida
+
+```text
+persona → coordinación y agentes especializados → herramientas gobernadas
+                          ↓
+        memoria relacional · memoria técnica · canon curado
+                          ↓
+            servicios privados · control panel privado
+                          ↓
+               código y documentación saneados
+```
+
+La separación entre rol, perfil, proceso y servicio evita presentar una identidad narrativa como prueba de ejecución. El mapa ampliado vive en [Mugiwara no Hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes).
+
+## Una captura pública del panel previamente revisada
+
+![Captura estática de la portada del Mugiwara Control Panel](assets/mugiwara-control-panel-home.png)
+
+> **Captura estática:** ilustra un corte histórico de la interfaz. Las métricas, el uptime y los estados visibles pertenecen a esa captura y **no representan el estado actual del sistema**, ni funcionan como telemetría o healthcheck en tiempo real.
+
+## Tripulación y responsabilidades
+
+| Función técnica | Identidad narrativa | Responsabilidad |
 |---|---|---|
-| 🧭 **Luffy** | CEO / orquestador | Prioriza, coordina, delega y cierra decisiones. |
-| ⚔️ **Zoro** | CTO / software | Arquitectura, implementación, PRs, QA y gobierno técnico. |
-| 🛠️ **Franky** | DevOps / sistemas | Infraestructura, servicios, Docker, despliegues, backups y automatización. |
-| 💰 **Nami** | CFO / finanzas | Control económico, reporting, Sheets y administración operativa. |
-| 🎯 **Usopp** | Marketing / diseño | Marca, narrativa, copy, UI/UX, contenido y escaparates públicos. |
-| 📚 **Robin** | Research / inteligencia | Investigación profunda, síntesis, documentación y contraste. |
-| 🩺 **Chopper** | Ciberseguridad | Revisión de secretos, permisos, hardening y superficie de ataque. |
-| 🍽️ **Sanji** | Scout práctico | Compras, servicios, viajes, reservas, vigilancia web y comparativas. |
-| 🐋 **Jinbe** | Legal / burocracia | Derecho español, administración pública, contratos y trámites. |
-| 🎷 **Brook** | Data / analítica | Datos, métricas, pipelines, proyección y análisis cuantitativo. |
+| Coordinación y cierre ejecutivo | 🧭 **Luffy** — etiqueta narrativa CEO | Prioriza, delega y cierra decisiones. |
+| Arquitectura y entrega de software | ⚔️ **Zoro** — etiqueta narrativa CTO | Implementación, revisión, QA y gobierno técnico. |
+| Infraestructura y sistemas | 🛠️ **Franky** | Servicios, automatización, despliegues y backups. |
+| Finanzas y administración operativa | 💰 **Nami** — etiqueta narrativa CFO | Control económico, reporting y gestión administrativa. |
+| Marketing, diseño y comunicación | 🎯 **Usopp** | Marca, narrativa, UI/UX y mantenimiento editorial. |
+| Investigación e inteligencia | 📚 **Robin** | Investigación, síntesis, documentación y contraste. |
+| Ciberseguridad | 🩺 **Chopper** | Secretos, permisos, hardening y superficie de ataque. |
+| Compras y búsqueda práctica | 🍽️ **Sanji** | Servicios, viajes, reservas, vigilancia y comparativas. |
+| Legal y burocracia | 🐋 **Jinbe** | Derecho español, contratos y trámites. |
+| Datos y analítica | 🎷 **Brook** | Métricas, pipelines, proyección y análisis cuantitativo. |
 
-La gracia no está en poner nombres simpáticos. La gracia está en que cada rol tiene **fronteras, criterio y herramientas propias**.
+CEO, CTO y CFO son **etiquetas narrativas de responsabilidad**, no cargos societarios, títulos profesionales ni acreditaciones.
 
----
+## Estado documentado y límites
 
-## 🕹️ El control de mando
+Los repositorios expresan arquitectura, decisiones y estados documentados en sus revisiones. Una captura, un perfil configurado o una descripción de componente no demuestra que un gateway, proceso o servicio esté ejecutándose ahora.
 
-Pablo no maneja esto a base de comandos sueltos y rezos al mar.
+La operación, configuración, memoria y telemetría permanecen privadas. La representación pública se limita a material revisado y saneado.
 
-El ecosistema tiene un **control plane** propio:
+## Autoría, herramientas de terceros y asistencia de IA
 
-➡️ **[mugiwara-control-panel](https://github.com/asistentes-mugiwara/mugiwara-control-panel)**
+**Pablo Laya es responsable de la arquitectura, integración, criterios, permisos y operación de Mugiwara.** La implementación emplea asistencia intensiva de IA dentro de esas decisiones y fronteras delegadas.
 
-Sirve para navegar el sistema con más claridad:
+El sistema se apoya, entre otras piezas, en [Hermes Agent](https://github.com/NousResearch/hermes-agent), [Honcho](https://github.com/plastic-labs/honcho), [Engram](https://github.com/Gentleman-Programming/engram), [OpenCode](https://github.com/anomalyco/opencode), [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai), [CodeGraph](https://github.com/colbymchenry/codegraph), [Git](https://github.com/git/git) y [GitHub](https://github.com).
 
-- estado general del barco;
-- fichas por agente;
-- catálogo de skills;
-- lectura de memoria;
-- navegación del vault;
-- healthchecks;
-- repos Git allowlisteados;
-- métricas de uso agregadas.
+La infraestructura documentada utiliza **Ubuntu Server** como entorno Linux, **Docker** para contenedores y servicios, **Tailscale** como red privada y un vault canónico propio como capa de conocimiento curado.
 
-Es código público, pero uso privado. Se enseña la interfaz y la arquitectura; no se publican secretos, credenciales ni configuración operativa.
+Esos proyectos y herramientas de terceros reciben crédito por sus aportaciones; no se les atribuye la autoría de Mugiwara.
 
----
+## Seguridad, contribuciones y contacto
 
-## 🗺️ El mapa público
+Si detectas una posible exposición, evita reproducirla en una issue pública y contacta de forma privada indicando solo la ruta y el tipo de riesgo.
 
-Para explicar cómo funciona todo sin abrir la sala de máquinas existe:
+- GitHub de Pablo: [github.com/Prodelaya](https://github.com/Prodelaya)
+- Portfolio: [prodelaya.dev](https://prodelaya.dev/)
+- Caso: [prodelaya.dev/#case-mugi](https://prodelaya.dev/#case-mugi)
+- Contacto: [proyectos.delaya@gmail.com](mailto:proyectos.delaya@gmail.com)
 
-➡️ **[mugiwara-no-hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes)**
+Las contribuciones documentales deben preservar claridad, atribución y saneado deny-by-default.
 
-Ese repo cuenta:
+## Nota de identidad no oficial
 
-- qué es el sistema Mugiwara/Hermes;
-- cómo se reparte la responsabilidad entre agentes;
-- cómo se separan memoria viva, memoria relacional y canon curado;
-- cómo se gobiernan skills, PRs, documentación y publicación;
-- qué se puede enseñar y qué se queda en la bodega.
-
-Traducción pirata: enseña la carta náutica, no el cofre con las llaves. 🗝️
-
----
-
-## 🧰 Stack de la travesía
-
-Este barco combina herramientas de IA, infra y gobierno documental:
-
-| Capa | Tecnologías / piezas |
-|---|---|
-| Runtime agente | **Hermes Agent** |
-| Memoria relacional | **Honcho**, APIs de texto y embeddings |
-| Desarrollo software | **OpenCode**, Git, GitHub, PRs y revisión por rol |
-| Infraestructura | **Ubuntu Server** en MiniPC propio |
-| Contenedores / servicios | **Docker** y servicios persistentes |
-| Red privada | **Tailscale** para acceso seguro y no público |
-| Conocimiento | Vault canónico, documentación pública y memoria técnica por proyecto |
-| Operación | Healthchecks, backups, cronjobs, control panel y trazabilidad Git |
-
-El objetivo no es presumir de stack por presumir. Es demostrar que se puede montar un sistema multiagente personal con especialización, memoria y operación real sobre infraestructura propia.
-
----
-
-## 🧠 Cómo piensa el sistema
-
-Tres ideas mandan en cubierta:
-
-1. **Especialización real**  
-   Cada Mugiwara tiene un dominio. Si todo el mundo hace todo, nadie gobierna nada.
-
-2. **Memoria por capas**  
-   Conversación, preferencias, proyecto técnico y canon duradero no viven en el mismo cajón.
-
-3. **Publicar sin desnudarse**  
-   Hay repos públicos, capturas y documentación; pero secretos, runtime privado y wiring sensible se quedan fuera.
-
----
-
-## 🏴‍☠️ Por qué mola
-
-Porque este perfil no es solo una colección de repos.
-
-Es la vitrina de una capacidad:
-
-> Pablo Laya puede diseñar, instalar y operar una tripulación de agentes IA en infraestructura propia, con roles especializados, memoria gobernada, control de mando, privacidad de red y publicación pública prudente.
-
-O dicho con menos traje y más cubierta:
-
-> un MiniPC, una tripulación, un panel de mando y muchas ganas de que la IA trabaje con orden, no como una jaula de loros con API key.
-
----
-
-## 🔗 Enlaces rápidos
-
-- 👤 Creador y operador: **[Pablo Laya](https://github.com/Prodelaya)**
-- 🗺️ Escaparate público: **[mugiwara-no-hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes)**
-- 🕹️ Control plane: **[mugiwara-control-panel](https://github.com/asistentes-mugiwara/mugiwara-control-panel)**
-- ⚙️ Runtime base: **[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)**
-
----
-
-## ⚠️ Nota de cubierta
-
-Este proyecto usa una narrativa inspirada en la idea de una tripulación pirata estilo Mugiwara. Es una identidad lúdica para organizar agentes y roles; no es un proyecto oficial ni afiliado a One Piece, Shueisha, Toei Animation ni Eiichiro Oda.
-
----
-
-<p align="center">
-  <strong>Asistentes Mugiwara</strong><br />
-  IA con sombrero, memoria con criterio y la bodega bien cerrada. ⚓
-</p>
+Mugiwara usa una narrativa de tripulación pirata para identificar responsabilidades. Es una identidad lúdica y no es un proyecto oficial ni está afiliado a One Piece, Shueisha, Toei Animation o Eiichiro Oda.
