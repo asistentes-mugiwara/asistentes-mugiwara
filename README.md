@@ -4,38 +4,22 @@
 
 # 🏴‍☠️ Asistentes Mugiwara
 
-Plataforma personal de agentes de IA, automatización y operación en Linux, diseñada y operada por [Pablo Laya](https://github.com/Prodelaya).
+Mugiwara aborda un problema práctico: **cómo delegar tareas a varios agentes de IA en Linux sin darles acceso indiscriminado a datos y herramientas**.
 
-Mugiwara combina agentes especializados, memoria por capas, herramientas gobernadas y un panel de control para organizar tareas y observar el sistema.
+**[Pablo Laya](https://github.com/Prodelaya)** diseñó, integró y opera el sistema: definió cómo se delegan las tareas, qué puede hacer cada agente y qué se revisa antes de publicar. La implementación se hizo con asistencia intensiva de IA. El [caso Mugiwara](https://prodelaya.dev/#case-mugi) recoge el contexto del proyecto.
 
-La implementación utiliza asistencia intensiva de IA dentro de una arquitectura, permisos y criterios definidos por Pablo. La autonomía de los agentes se limita a las responsabilidades delegadas.
+## Tres repositorios, tres puntos de entrada
 
-La narrativa de tripulación sirve para identificar roles. El interés técnico está en cómo se separan responsabilidades, memoria, acceso y operación.
+- 🏴‍☠️ **Asistentes Mugiwara** (este repositorio): [mapa de responsabilidades](#tripulación-y-responsabilidades) y [recorrido textual del panel](#recorrido-del-panel).
+- 🗺️ **Mugiwara no Hermes**: [arquitectura y capas de memoria](https://github.com/asistentes-mugiwara/mugiwara-no-hermes/blob/4789fc50a1eeb5e2a8ac407ce508387958cb58e4/docs/architecture.md) y [flujo de delegación, revisión y publicación](https://github.com/asistentes-mugiwara/mugiwara-no-hermes/blob/4789fc50a1eeb5e2a8ac407ce508387958cb58e4/docs/workflow-model.md).
+- 🕹️ **[Mugiwara Control Panel](https://github.com/asistentes-mugiwara/mugiwara-control-panel)**: repositorio de la consola de observabilidad y navegación.
 
-## Empieza aquí
+`mugiwara-no-hermes` se distribuye con licencia MIT. El perfil y el panel son públicos, pero no declaran licencia.
 
-Mugiwara es una plataforma personal de agentes de IA, automatización y operación en Linux, diseñada y operada por **[Pablo Laya](https://github.com/Prodelaya)**.
+## Qué se puede comprobar
 
-- 🕹️ [Mugiwara Control Panel](https://github.com/asistentes-mugiwara/mugiwara-control-panel): consola de observabilidad y navegación, con código público saneado y operación privada.
-- 🗺️ [Mugiwara no Hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes): arquitectura pública, memoria, gobernanza y límites del sistema privado.
-- 💼 [Portfolio de Pablo Laya](https://prodelaya.dev/): perfil profesional y proyectos.
-- ⚓ [Caso Mugiwara](https://prodelaya.dev/#case-mugi): contexto del sistema en el portfolio.
-
-## Alcance público
-
-Estos repositorios ofrecen código y documentación seleccionados para explicar el sistema. No publican configuración viva, credenciales, memoria privada, datos operativos, topología reconstructiva ni acceso al runtime.
-
-`mugiwara-no-hermes` se distribuye con licencia MIT. El perfil y el panel son código público, pero no se presentan como open source mientras no declaren una licencia.
-
-## Capacidades demostradas
-
-- especialización de agentes con responsabilidades y límites explícitos;
-- memoria separada en capas relacional, técnica y canónica;
-- herramientas gobernadas y flujos de entrega revisables;
-- observabilidad mediante una interfaz que protege las fuentes privadas;
-- automatización y operación en Linux con publicación deny-by-default.
-
-Estas capacidades describen el diseño y la práctica documentada; no constituyen una señal de disponibilidad o actividad en tiempo real.
+- **Separación entre sistema y escaparate.** El [modelo público de Mugiwara no Hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes/blob/4789fc50a1eeb5e2a8ac407ce508387958cb58e4/docs/system-vs-showcase.md) distingue qué explica el portfolio —roles, arquitectura y criterios— de lo que pertenece a la operación privada.
+- **Publicación con revisión previa.** La [política y su lista de comprobación](https://github.com/asistentes-mugiwara/mugiwara-no-hermes/blob/4789fc50a1eeb5e2a8ac407ce508387958cb58e4/docs/publishing-policy.md) documentan qué se puede publicar, qué requiere saneado y qué se queda fuera por defecto. Es un criterio documentado, no una auditoría de cada publicación.
 
 ## Arquitectura resumida
 
@@ -46,16 +30,18 @@ persona → coordinación y agentes especializados → herramientas gobernadas
                           ↓
             servicios privados · control panel privado
                           ↓
-               código y documentación saneados
+               material seleccionado para publicación
 ```
 
 La separación entre rol, perfil, proceso y servicio evita presentar una identidad narrativa como prueba de ejecución. El mapa ampliado vive en [Mugiwara no Hermes](https://github.com/asistentes-mugiwara/mugiwara-no-hermes).
 
-## Una captura pública del panel previamente revisada
+## Recorrido del panel
 
-![Captura estática de la portada del Mugiwara Control Panel](assets/mugiwara-control-panel-home.png)
+1. **Inicio:** ofrece un resumen para orientarse antes de consultar una vista específica.
+2. **Tripulación:** permite consultar los perfiles y entender qué responsabilidad tiene cada agente.
+3. **Conocimiento:** distingue el catálogo de habilidades, la memoria y el conocimiento curado para navegar cada capa por separado.
 
-> **Captura estática:** ilustra un corte histórico de la interfaz. Las métricas, el uptime y los estados visibles pertenecen a esa captura y **no representan el estado actual del sistema**, ni funcionan como telemetría o healthcheck en tiempo real.
+El recorrido describe el diseño de la consola. No es una demo en vivo ni acredita su disponibilidad actual.
 
 ## Tripulación y responsabilidades
 
@@ -68,7 +54,7 @@ La separación entre rol, perfil, proceso y servicio evita presentar una identid
 | Marketing, diseño y comunicación | 🎯 **Usopp** | Marca, narrativa, UI/UX y mantenimiento editorial. |
 | Investigación e inteligencia | 📚 **Robin** | Investigación, síntesis, documentación y contraste. |
 | Ciberseguridad | 🩺 **Chopper** | Secretos, permisos, hardening y superficie de ataque. |
-| Compras y búsqueda práctica | 🍽️ **Sanji** | Servicios, viajes, reservas, vigilancia y comparativas. |
+| Asistencia personal y seguimiento cotidiano | 🍽️ **Sanji** | Apoya en agenda, compras, servicios, reservas y viajes. Sigue los pendientes hasta verificar el cierre y pide autorización para acciones externas sensibles. |
 | Legal y burocracia | 🐋 **Jinbe** | Derecho español, contratos y trámites. |
 | Datos y analítica | 🎷 **Brook** | Métricas, pipelines, proyección y análisis cuantitativo. |
 
@@ -76,13 +62,11 @@ CEO, CTO y CFO son **etiquetas narrativas de responsabilidad**, no cargos societ
 
 ## Estado documentado y límites
 
-Los repositorios expresan arquitectura, decisiones y estados documentados en sus revisiones. Una captura, un perfil configurado o una descripción de componente no demuestra que un gateway, proceso o servicio esté ejecutándose ahora.
+Los repositorios documentan arquitectura y decisiones. Un perfil o una descripción de un componente no demuestra que esté activo en este momento.
 
-La operación, configuración, memoria y telemetría permanecen privadas. La representación pública se limita a material revisado y saneado.
+La política de publicación establece que la configuración privada, la memoria y los datos operativos quedan fuera por defecto. Esa política no certifica el contenido de cada revisión publicada.
 
-## Autoría, herramientas de terceros y asistencia de IA
-
-**Pablo Laya es responsable de la arquitectura, integración, criterios, permisos y operación de Mugiwara.** La implementación emplea asistencia intensiva de IA dentro de esas decisiones y fronteras delegadas.
+## Herramientas de terceros y créditos
 
 El sistema se apoya, entre otras piezas, en [Hermes Agent](https://github.com/NousResearch/hermes-agent), [Honcho](https://github.com/plastic-labs/honcho), [Engram](https://github.com/Gentleman-Programming/engram), [OpenCode](https://github.com/anomalyco/opencode), [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai), [CodeGraph](https://github.com/colbymchenry/codegraph), [Git](https://github.com/git/git) y [GitHub](https://github.com).
 
